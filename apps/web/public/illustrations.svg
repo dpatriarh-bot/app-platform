@@ -1,0 +1,99 @@
+<!-- ============================================================
+     illustrations.svg — простые иллюстрации для пустых состояний
+     Все выполнены в едином стиле: мягкие контуры, 3-4 цвета.
+     ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+
+  <!-- Приветствие (hero) -->
+  <symbol id="welcome" viewBox="0 0 400 300">
+    <defs>
+      <linearGradient id="welcome-bg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#E0F0CC"/>
+        <stop offset="100%" stop-color="#FBF0D8"/>
+      </linearGradient>
+    </defs>
+    <circle cx="200" cy="150" r="140" fill="url(#welcome-bg)"/>
+    <circle cx="200" cy="150" r="100" fill="#FFFFFF" opacity="0.5"/>
+    <!-- Книга -->
+    <path d="M140 175 L200 155 L200 210 L140 230 Z" fill="#82C050" stroke="#529527" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M200 155 L260 175 L260 230 L200 210 Z" fill="#A0D175" stroke="#529527" stroke-width="2" stroke-linejoin="round"/>
+    <line x1="200" y1="155" x2="200" y2="210" stroke="#529527" stroke-width="2"/>
+    <!-- Лучики -->
+    <circle cx="140" cy="90" r="6" fill="#E8C77A"/>
+    <circle cx="270" cy="80" r="4" fill="#F2867D"/>
+    <circle cx="280" cy="200" r="5" fill="#7BB6E8"/>
+    <circle cx="120" cy="200" r="4" fill="#B29CE0"/>
+    <!-- Улыбка -->
+    <circle cx="185" cy="135" r="4" fill="#1F2A17"/>
+    <circle cx="215" cy="135" r="4" fill="#1F2A17"/>
+    <path d="M180 150 Q200 165 220 150" stroke="#1F2A17" stroke-width="3" stroke-linecap="round" fill="none"/>
+  </symbol>
+
+  <!-- Нет данных / пустой список -->
+  <symbol id="empty" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="80" fill="#F0E9DA"/>
+    <rect x="60" y="70" width="80" height="60" rx="6" fill="#FFFFFF" stroke="#D4C7A8" stroke-width="2" stroke-dasharray="6 4"/>
+    <line x1="75" y1="90" x2="125" y2="90" stroke="#C6CEC1" stroke-width="2" stroke-linecap="round"/>
+    <line x1="75" y1="105" x2="115" y2="105" stroke="#C6CEC1" stroke-width="2" stroke-linecap="round"/>
+    <line x1="75" y1="120" x2="105" y2="105" stroke="#C6CEC1" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- Поиск ничего не нашёл -->
+  <symbol id="search-empty" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="80" fill="#F0E9DA"/>
+    <circle cx="90" cy="90" r="30" fill="none" stroke="#A8B2A2" stroke-width="5"/>
+    <line x1="112" y1="112" x2="135" y2="135" stroke="#A8B2A2" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="90" cy="90" r="15" fill="#E8C77A" opacity="0.6"/>
+  </symbol>
+
+  <!-- Нет тестов -->
+  <symbol id="no-tests" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="80" fill="#E0F0CC"/>
+    <rect x="65" y="60" width="70" height="90" rx="6" fill="#FFFFFF" stroke="#82C050" stroke-width="2"/>
+    <line x1="80" y1="80" x2="120" y2="80" stroke="#C6CEC1" stroke-width="3" stroke-linecap="round"/>
+    <line x1="80" y1="95" x2="115" y2="95" stroke="#C6CEC1" stroke-width="3" stroke-linecap="round"/>
+    <line x1="80" y1="110" x2="105" y2="110" stroke="#C6CEC1" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="135" cy="130" r="18" fill="#82C050"/>
+    <path d="M128 130 l4 4 8-9" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+
+  <!-- Нет подарков -->
+  <symbol id="no-gifts" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="80" fill="#FBF0D8"/>
+    <rect x="60" y="90" width="80" height="60" rx="4" fill="#E8C77A" stroke="#C9A455" stroke-width="2"/>
+    <rect x="55" y="80" width="90" height="20" rx="4" fill="#EFD49A" stroke="#C9A455" stroke-width="2"/>
+    <line x1="100" y1="80" x2="100" y2="150" stroke="#C9A455" stroke-width="3"/>
+    <path d="M100 80 Q85 60 75 72 Q68 82 90 82 Z" fill="#F2867D" stroke="#D25D53" stroke-width="2"/>
+    <path d="M100 80 Q115 60 125 72 Q132 82 110 82 Z" fill="#F2867D" stroke="#D25D53" stroke-width="2"/>
+  </symbol>
+
+  <!-- Нет уведомлений -->
+  <symbol id="no-notifications" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="80" fill="#E4F0FA"/>
+    <path d="M100 60 Q75 60 75 90 L75 115 L65 125 L135 125 L125 115 L125 90 Q125 60 100 60 Z" fill="#FFFFFF" stroke="#7BB6E8" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="100" cy="135" r="6" fill="#7BB6E8"/>
+  </symbol>
+
+  <!-- Ничего не найдено (404) -->
+  <symbol id="not-found" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="80" fill="#FDE4E4"/>
+    <circle cx="80" cy="90" r="8" fill="#F2867D"/>
+    <circle cx="120" cy="90" r="8" fill="#F2867D"/>
+    <path d="M75 130 Q100 110 125 130" stroke="#D25D53" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </symbol>
+
+  <!-- Ошибка сервера -->
+  <symbol id="error" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="80" fill="#FDE4E4"/>
+    <path d="M100 60 L100 115" stroke="#F2867D" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="100" cy="135" r="6" fill="#F2867D"/>
+  </symbol>
+
+  <!-- Успех -->
+  <symbol id="success" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="80" fill="#E0F0CC"/>
+    <circle cx="100" cy="100" r="50" fill="#82C050"/>
+    <path d="M80 100 l15 15 30-35" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+
+</svg>

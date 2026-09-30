@@ -1,0 +1,74 @@
+/* ============================================================
+   responsive.css — мобильная адаптация
+   Mobile-first: 360, 480, 640, 900, 1200
+   ============================================================ */
+
+/* ---------- Mobile ≤ 639px ---------- */
+@media (max-width: 639px) {
+  .container, .app-main, .admin-main { padding-left: var(--sp-4); padding-right: var(--sp-4); }
+  h1 { font-size: var(--fz-3xl); }
+  h2 { font-size: var(--fz-2xl); }
+  h3 { font-size: var(--fz-xl); }
+  .page-title { font-size: var(--fz-xl); }
+  .btn-lg { height: 48px; font-size: var(--fz-base); }
+  .modal { max-height: calc(100vh - 16px); border-radius: var(--r-lg); }
+  .modal-foot { flex-direction: column-reverse; }
+  .modal-foot .btn { width: 100%; }
+  .public-nav { display: none; }
+  .public-header-inner { gap: var(--sp-3); }
+  .grid-auto-260 { grid-template-columns: 1fr; }
+  .grid-auto-320 { grid-template-columns: 1fr; }
+}
+
+/* ---------- ≥ 640px ---------- */
+@media (min-width: 640px) {
+  .public-nav { display: flex; }
+  .app-bottom-nav { display: none; }
+  .app-main { padding-bottom: var(--sp-8); }
+  .admin-main { padding-bottom: var(--sp-8); }
+}
+
+/* ---------- ≥ 900px ---------- */
+@media (min-width: 900px) {
+  .admin-shell {
+    grid-template-columns: 240px 1fr;
+  }
+  .admin-sidebar { display: block; }
+  .admin-header-menu { display: none; }
+  .admin-drawer { display: none !important; }
+}
+
+/* ---------- ≥ 1200px ---------- */
+@media (min-width: 1200px) {
+  .container, .app-header-inner, .app-main,
+  .admin-main, .public-header-inner {
+    max-width: var(--container);
+  }
+  .admin-main { padding: var(--sp-6); }
+}
+
+/* ---------- Touch ---------- */
+@media (hover: none) and (pointer: coarse) {
+  .btn { min-height: 46px; }
+  .btn-sm { min-height: 38px; }
+  .input, .select, .textarea { font-size: 16px; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .public-header, .app-header, .app-bottom-nav, .admin-sidebar, .admin-header,
+  .toast-stack, .modal-backdrop {
+    display: none !important;
+  }
+  body { background: #fff; }
+}

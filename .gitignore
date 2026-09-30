@@ -1,0 +1,46 @@
+# Зависимости
+node_modules/
+*/node_modules/
+
+# Секреты
+.env
+.env.local
+.env.*.local
+
+# Сборка
+dist/
+build/
+*/dist/
+*/build/
+
+# Логи
+*.log
+npm-debug.log*
+logs/
+
+# Кэш
+.cache/
+.vite/
+*.tsbuildinfo
+
+# ОС
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Данные контейнеров
+postgres_data/
+redis_data/
+minio_data/
+nginx_cache/
+
+# Сертификаты (dev)
+infra/nginx/certs/*.pem
+infra/nginx/certs/*.key
+
+# Загрузки
+apps/api/uploads/

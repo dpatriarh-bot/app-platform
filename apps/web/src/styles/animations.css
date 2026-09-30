@@ -1,0 +1,302 @@
+/* ============================================================
+   animations.css — анимации, переходы, микроинтеракции
+   Все уважают prefers-reduced-motion (см. base.css).
+   ============================================================ */
+
+/* ============================================================
+   1. КЛЮЧЕВЫЕ КАДРЫ
+   ============================================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+@keyframes bounceIn {
+  0%   { opacity: 0; transform: scale(0.3); }
+  50%  { opacity: 1; transform: scale(1.05); }
+  70%  { transform: scale(0.96); }
+  100% { transform: scale(1); }
+}
+
+@keyframes pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25%      { transform: rotate(-4deg); }
+  75%      { transform: rotate(4deg); }
+}
+
+/* ============================================================
+   2. УТИЛИТАРНЫЕ КЛАССЫ ПОЯВЛЕНИЯ
+   ============================================================ */
+
+.anim-fade-in       { animation: fadeIn var(--t-base) var(--ease-out) both; }
+.anim-slide-up      { animation: slideUp var(--t-slow) var(--ease-out) both; }
+.anim-slide-down    { animation: slideDown var(--t-slow) var(--ease-out) both; }
+.anim-slide-in-right{ animation: slideInRight var(--t-slow) var(--ease-out) both; }
+.anim-slide-in-left { animation: slideInLeft var(--t-slow) var(--ease-out) both; }
+.anim-scale-in      { animation: scaleIn var(--t-base) var(--ease-out) both; }
+.anim-bounce-in     { animation: bounceIn var(--t-slower) var(--ease-back) both; }
+.anim-pulse         { animation: pulse 1.6s var(--ease-soft) infinite; }
+.anim-float         { animation: float 3s var(--ease-soft) infinite; }
+.anim-wiggle        { animation: wiggle 0.6s var(--ease-out) both; }
+.anim-shake         { animation: shake 0.4s var(--ease-out) both; }
+.anim-pop           { animation: pop 0.2s var(--ease-out) both; }
+
+/* ---------- Задержки для каскада ---------- */
+
+.delay-1 { animation-delay: 40ms; }
+.delay-2 { animation-delay: 80ms; }
+.delay-3 { animation-delay: 120ms; }
+.delay-4 { animation-delay: 160ms; }
+.delay-5 { animation-delay: 200ms; }
+.delay-6 { animation-delay: 240ms; }
+.delay-8 { animation-delay: 320ms; }
+.delay-10 { animation-delay: 400ms; }
+
+/* ============================================================
+   3. ХОВЕР-ЭФФЕКТЫ
+   ============================================================ */
+
+.hover-lift {
+  transition: transform var(--t-base) var(--ease-out),
+              box-shadow var(--t-base) var(--ease-out);
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-lg);
+}
+
+.hover-scale {
+  transition: transform var(--t-fast) var(--ease-out);
+}
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+.hover-bright {
+  transition: filter var(--t-fast) var(--ease-out);
+}
+.hover-bright:hover {
+  filter: brightness(1.05);
+}
+
+.press-down:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+/* ============================================================
+   4. ПЕРЕХОДЫ МЕЖДУ СТРАНИЦАМИ SPA
+   ============================================================ */
+
+.page-enter {
+  animation: slideUp var(--t-slow) var(--ease-out) both;
+}
+
+.page-exit {
+  animation: fadeOut var(--t-fast) var(--ease-in) both;
+}
+
+/* Контейнер #app — плавное появление при смене роута */
+#app > * {
+  animation: fadeIn var(--t-base) var(--ease-out);
+}
+
+/* ============================================================
+   5. СПИННЕРЫ
+   ============================================================ */
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--c-border);
+  border-top-color: var(--c-primary);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+.spinner-sm {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.spinner-lg {
+  width: 48px;
+  height: 48px;
+  border-width: 4px;
+}
+
+.spinner-inline {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+
+/* ============================================================
+   6. SKELETON SHIMMER
+   ============================================================ */
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--c-surface-2) 25%,
+    var(--c-surface-3) 50%,
+    var(--c-surface-2) 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+/* ============================================================
+   7. КАСКАДНОЕ ПОЯВЛЕНИЕ СПИСКОВ
+   Автоматически применяется к элементам с .stagger-item
+   ============================================================ */
+
+.stagger > .stagger-item {
+  opacity: 0;
+  animation: slideUp var(--t-slow) var(--ease-out) both;
+}
+
+.stagger > .stagger-item:nth-child(1)  { animation-delay: 40ms; }
+.stagger > .stagger-item:nth-child(2)  { animation-delay: 80ms; }
+.stagger > .stagger-item:nth-child(3)  { animation-delay: 120ms; }
+.stagger > .stagger-item:nth-child(4)  { animation-delay: 160ms; }
+.stagger > .stagger-item:nth-child(5)  { animation-delay: 200ms; }
+.stagger > .stagger-item:nth-child(6)  { animation-delay: 240ms; }
+.stagger > .stagger-item:nth-child(7)  { animation-delay: 280ms; }
+.stagger > .stagger-item:nth-child(8)  { animation-delay: 320ms; }
+.stagger > .stagger-item:nth-child(9)  { animation-delay: 360ms; }
+.stagger > .stagger-item:nth-child(10) { animation-delay: 400ms; }
+.stagger > .stagger-item:nth-child(n+11) { animation-delay: 440ms; }
+
+/* ============================================================
+   8. АНИМАЦИИ КОНКРЕТНЫХ ЭЛЕМЕНТОВ
+   ============================================================ */
+
+/* Карточки при наведении — лёгкий наклон стрелки */
+.subject-card .subject-card-arrow,
+.test-card .arrow {
+  transition: transform var(--t-base) var(--ease-out);
+}
+
+/* Точка уведомления — мягкое мигание */
+.notification-dot {
+  animation: pulse 2s var(--ease-soft) infinite;
+}
+
+/* Иконки успеха — bounce */
+.result-icon.is-success {
+  animation: bounceIn var(--t-slower) var(--ease-back) both;
+}
+
+/* Ошибка формы — тряска */
+.field.has-error .input,
+.field.has-error .select,
+.field.has-error .textarea {
+  animation: shake 0.4s var(--ease-out);
+}
+
+/* ============================================================
+   9. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-in,
+  .anim-slide-up,
+  .anim-slide-down,
+  .anim-slide-in-right,
+  .anim-slide-in-left,
+  .anim-scale-in,
+  .anim-bounce-in,
+  .anim-pulse,
+  .anim-float,
+  .anim-wiggle,
+  .anim-shake,
+  .anim-pop,
+  .page-enter,
+  .page-exit,
+  .stagger > .stagger-item,
+  #app > * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hover-lift:hover,
+  .hover-scale:hover {
+    transform: none;
+  }
+
+  .spinner,
+  .spinner-inline,
+  .shimmer {
+    animation-duration: 2s;
+  }
+}

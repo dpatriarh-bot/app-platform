@@ -1,0 +1,392 @@
+/* ============================================================
+   tokens.css — дизайн-токены проекта «Улыбка ребёнка»
+   Светлая тема + тёмная через [data-theme="dark"].
+   Палитра: navy + blue + teal + yellow + red + green.
+   ============================================================ */
+
+:root {
+  /* ---------- Базовая палитра (navy / blue / акценты) ---------- */
+
+  /* Navy — основной тёмный */
+  --navy-950: #0d2742;
+  --navy-900: #102f4f;
+  --navy-800: #173d62;
+  --navy-700: #1f4a73;
+  --navy-600: #2a5c8a;
+
+  /* Ink — текст */
+  --ink: #173454;
+  --ink-soft: #5e7690;
+  --ink-dim: #8a9cb0;
+  --ink-faint: #b8c7d6;
+
+  /* Blue — основной акцент */
+  --blue-50:  #f2f8ff;
+  --blue-100: #e8f3ff;
+  --blue-200: #cfe6ff;
+  --blue-300: #a8d1ff;
+  --blue-400: #6fb2f5;
+  --blue-500: #247ee5;
+  --blue-600: #1466c5;
+  --blue-700: #0f52a3;
+
+  /* Teal — успех / спокойствие */
+  --teal-50:  #e6f8f4;
+  --teal-100: #c9f0e8;
+  --teal-300: #7ad9c8;
+  --teal-500: #1bb8a2;
+  --teal-600: #17a08d;
+  --teal-700: #128a78;
+
+  /* Yellow — внимание / золото */
+  --yellow-50:  #fff9e6;
+  --yellow-100: #fff6d8;
+  --yellow-300: #fbe08a;
+  --yellow-500: #f7bf3f;
+  --yellow-600: #e0a820;
+  --yellow-700: #b8861a;
+
+  /* Red — ошибка / опасность */
+  --red-50:  #fff5f6;
+  --red-100: #fff0f1;
+  --red-300: #f4a3a8;
+  --red-500: #ec6a72;
+  --red-600: #d9525a;
+  --red-700: #b83f47;
+
+  /* Green — успех (альтернативный) */
+  --green-50:  #eefaf4;
+  --green-100: #eaf9f1;
+  --green-300: #7bdaa8;
+  --green-500: #27b56f;
+  --green-600: #1fa160;
+  --green-700: #188a52;
+
+  /* Нейтральные (canvas / surface / stroke) */
+  --canvas:      #edf5fb;
+  --canvas-deep: #e4f0f8;
+  --surface:     #ffffff;
+  --surface-2:   #f5f9fd;
+  --surface-3:   #e9f1f8;
+  --stroke:      #dce9f2;
+  --stroke-2:    #c7dceb;
+
+  /* ---------- Семантические алиасы (то, что использует UI) ---------- */
+
+  --c-bg:          var(--canvas);
+  --c-surface:     var(--surface);
+  --c-surface-2:   var(--surface-2);
+  --c-surface-3:   var(--surface-3);
+
+  --c-border:        var(--stroke);
+  --c-border-soft:   var(--stroke);
+  --c-border-strong: var(--stroke-2);
+
+  --c-text:        var(--ink);
+  --c-text-muted:  var(--ink-soft);
+  --c-text-dim:    var(--ink-dim);
+  --c-text-invert: #FFFFFF;
+
+  --c-primary:     var(--blue-500);
+  --c-primary-600: var(--blue-600);
+  --c-primary-700: var(--blue-700);
+  --c-primary-100: var(--blue-100);
+  --c-primary-50:  var(--blue-50);
+
+  --c-accent:      var(--yellow-500);
+  --c-accent-100:  var(--yellow-100);
+
+  --c-link:        var(--blue-600);
+  --c-link-hover:  var(--blue-700);
+
+  --c-success:    var(--green-500);
+  --c-success-bg: var(--green-100);
+  --c-success-br: var(--green-300);
+
+  --c-warning:    var(--yellow-500);
+  --c-warning-bg: var(--yellow-100);
+  --c-warning-br: var(--yellow-300);
+
+  --c-danger:     var(--red-500);
+  --c-danger-bg:  var(--red-100);
+  --c-danger-br:  var(--red-300);
+
+  --c-info:       var(--teal-500);
+  --c-info-bg:    var(--teal-50);
+  --c-info-br:    var(--teal-300);
+
+  /* Дополнительные цветовые алиасы, используемые в старых файлах */
+  --c-green-50:  var(--green-50);
+  --c-green-100: var(--green-100);
+  --c-green-200: var(--green-300);
+  --c-green-300: var(--green-300);
+  --c-green-400: var(--green-500);
+  --c-green-500: var(--green-500);
+  --c-green-600: var(--green-600);
+  --c-green-700: var(--green-700);
+  --c-green-800: var(--green-700);
+
+  --c-coral-100: var(--red-100);
+  --c-coral-300: var(--red-300);
+  --c-coral-500: var(--red-500);
+  --c-coral-700: var(--red-700);
+
+  --c-peach-100: var(--yellow-100);
+  --c-peach-300: var(--yellow-300);
+  --c-peach-500: var(--yellow-500);
+  --c-peach-700: var(--yellow-700);
+
+  --c-sky-100: var(--blue-100);
+  --c-sky-300: var(--blue-300);
+  --c-sky-500: var(--blue-500);
+  --c-sky-700: var(--blue-700);
+
+  --c-lav-100: var(--blue-100);
+  --c-lav-300: var(--blue-200);
+  --c-lav-500: var(--blue-400);
+  --c-lav-700: var(--blue-600);
+
+  /* Ink-алиасы (используются в base.css) */
+  --c-ink-900: var(--ink);
+  --c-ink-800: var(--navy-800);
+  --c-ink-700: var(--navy-700);
+  --c-ink-600: var(--ink-soft);
+  --c-ink-500: var(--ink-soft);
+  --c-ink-400: var(--ink-dim);
+  --c-ink-300: var(--ink-faint);
+  --c-ink-200: var(--stroke-2);
+  --c-ink-100: var(--stroke);
+
+  /* Sand-алиасы (используются в старых файлах) */
+  --c-sand-50:  var(--surface-2);
+  --c-sand-100: var(--canvas);
+  --c-sand-200: var(--surface-3);
+  --c-sand-300: var(--stroke);
+  --c-sand-400: var(--stroke-2);
+
+  /* ---------- Радиусы ---------- */
+
+  --r-xs:  4px;
+  --r-sm:  8px;
+  --r-md:  12px;
+  --r-lg:  16px;
+  --r-xl:  20px;
+  --r-2xl: 24px;
+  --r-pill: 999px;
+
+  /* Совместимость со старой палитрой */
+  --radius:       var(--r-xl);
+  --radius-small: var(--r-md);
+
+  /* ---------- Отступы (шкала) ---------- */
+
+  --sp-0:  0;
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-7:  28px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-14: 56px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+
+  --density-unit:     4px;
+  --pad-card:         var(--sp-6);
+  --pad-card-lg:      var(--sp-8);
+  --pad-section:      var(--sp-12);
+  --gap-grid:         var(--sp-5);
+
+  /* ---------- Типографика ---------- */
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --fz-xs:   12px;
+  --fz-sm:   13px;
+  --fz-md:   14px;
+  --fz-base: 16px;
+  --fz-lg:   18px;
+  --fz-xl:   20px;
+  --fz-2xl:  24px;
+  --fz-3xl:  30px;
+  --fz-4xl:  38px;
+  --fz-5xl:  48px;
+  --fz-6xl:  60px;
+
+  --lh-tight: 1.15;
+  --lh-snug:  1.3;
+  --lh-base:  1.55;
+  --lh-loose: 1.7;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semi:    600;
+  --fw-bold:    700;
+  --fw-black:   800;
+
+  --ls-tight:  -0.02em;
+  --ls-snug:   -0.01em;
+  --ls-normal: 0;
+  --ls-wide:   0.02em;
+
+  /* ---------- Тени (navy-tinted) ---------- */
+
+  --sh-xs:  0 1px 2px rgba(37, 77, 112, 0.06);
+  --sh-sm:  0 2px 6px rgba(37, 77, 112, 0.07), 0 1px 2px rgba(37, 77, 112, 0.05);
+  --sh-md:  0 8px 24px rgba(37, 77, 112, 0.08), 0 2px 6px rgba(37, 77, 112, 0.05);
+  --sh-lg:  0 18px 46px rgba(37, 77, 112, 0.10), 0 6px 12px rgba(37, 77, 112, 0.06);
+  --sh-xl:  0 28px 60px rgba(37, 77, 112, 0.14), 0 10px 20px rgba(37, 77, 112, 0.08);
+  --sh-focus:        0 0 0 4px rgba(36, 126, 229, 0.20);
+  --sh-focus-danger: 0 0 0 4px rgba(236, 106, 114, 0.22);
+
+  /* Совместимость с палитрой запроса */
+  --shadow:       var(--sh-lg);
+  --shadow-small: var(--sh-md);
+
+  /* ---------- Градиенты ---------- */
+
+  --g-hero:    linear-gradient(135deg, #e8f3ff 0%, #edf5fb 55%, #fff6d8 100%);
+  --g-primary: linear-gradient(135deg, var(--blue-500) 0%, var(--blue-600) 100%);
+  --g-warm:    linear-gradient(135deg, var(--yellow-500) 0%, var(--red-500) 100%);
+  --g-cool:    linear-gradient(135deg, var(--teal-500) 0%, var(--blue-500) 100%);
+
+  /* ---------- Анимации ---------- */
+
+  --t-fast:   120ms;
+  --t-base:   200ms;
+  --t-slow:   320ms;
+  --t-slower: 480ms;
+
+  --ease-out:  cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in:   cubic-bezier(0.4, 0, 1, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---------- Z-index ---------- */
+
+  --z-base:     1;
+  --z-dropdown: 300;
+  --z-sticky:   200;
+  --z-drawer:   500;
+  --z-modal:    1000;
+  --z-toast:    1100;
+  --z-tooltip:  1200;
+
+  /* ---------- Layout ---------- */
+
+  --w-container:        1200px;
+  --w-container-wide:   1320px;
+  --w-container-narrow: 720px;
+
+  --h-header:     68px;
+  --h-header-sm:  60px;
+  --h-bottom-nav: 64px;
+  --w-sidebar:    260px;
+  --w-sidebar-sm: 226px;
+
+  /* Совместимость с палитрой запроса */
+  --sidebar-width: var(--w-sidebar-sm);
+
+  /* ---------- Прочее ---------- */
+
+  --backdrop:      rgba(13, 39, 66, 0.55);
+  --backdrop-blur: 8px;
+}
+
+/* ============================================================
+   ТЁМНАЯ ТЕМА — navy-инвертированная
+   ============================================================ */
+
+[data-theme="dark"] {
+  --c-bg:          #0a1f36;
+  --c-surface:     #102f4f;
+  --c-surface-2:   #173d62;
+  --c-surface-3:   #1f4a73;
+
+  --c-border:        #2a5c8a;
+  --c-border-soft:   #234c76;
+  --c-border-strong: #3a6c9c;
+
+  --c-text:        #e8f3ff;
+  --c-text-muted:  #a8c1d9;
+  --c-text-dim:    #7d99b6;
+  --c-text-invert: #0d2742;
+
+  --c-primary:     var(--blue-400);
+  --c-primary-600: var(--blue-500);
+  --c-primary-700: var(--blue-600);
+  --c-primary-100: rgba(36, 126, 229, 0.18);
+  --c-primary-50:  rgba(36, 126, 229, 0.08);
+
+  --c-link:        var(--blue-300);
+  --c-link-hover:  var(--blue-200);
+
+  --c-success:    var(--green-300);
+  --c-success-bg: rgba(39, 181, 111, 0.12);
+  --c-success-br: rgba(39, 181, 111, 0.32);
+
+  --c-warning:    var(--yellow-300);
+  --c-warning-bg: rgba(247, 191, 63, 0.14);
+  --c-warning-br: rgba(247, 191, 63, 0.32);
+
+  --c-danger:     var(--red-300);
+  --c-danger-bg:  rgba(236, 106, 114, 0.14);
+  --c-danger-br:  rgba(236, 106, 114, 0.32);
+
+  --c-info:       var(--teal-300);
+  --c-info-bg:    rgba(27, 184, 162, 0.14);
+  --c-info-br:    rgba(27, 184, 162, 0.30);
+
+  --c-ink-900: #e8f3ff;
+  --c-ink-800: #cfe0f0;
+  --c-ink-700: #a8c1d9;
+  --c-ink-600: #7d99b6;
+  --c-ink-500: #5e7690;
+  --c-ink-400: #3d5875;
+  --c-ink-300: #2a5c8a;
+  --c-ink-200: #234c76;
+  --c-ink-100: #173d62;
+
+  --c-sand-50:  #0d2742;
+  --c-sand-100: #0a1f36;
+  --c-sand-200: #173d62;
+  --c-sand-300: #2a5c8a;
+  --c-sand-400: #3a6c9c;
+
+  --sh-xs:  0 1px 2px rgba(0, 0, 0, 0.4);
+  --sh-sm:  0 2px 6px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --sh-md:  0 8px 24px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
+  --sh-lg:  0 18px 46px rgba(0, 0, 0, 0.5), 0 6px 12px rgba(0, 0, 0, 0.3);
+  --sh-xl:  0 28px 60px rgba(0, 0, 0, 0.6), 0 10px 20px rgba(0, 0, 0, 0.4);
+
+  --g-hero:    linear-gradient(135deg, #102f4f 0%, #0a1f36 55%, #2b2418 100%);
+  --g-primary: linear-gradient(135deg, var(--blue-400) 0%, var(--blue-500) 100%);
+  --g-warm:    linear-gradient(135deg, var(--yellow-500) 0%, var(--red-500) 100%);
+  --g-cool:    linear-gradient(135deg, var(--teal-500) 0%, var(--blue-400) 100%);
+
+  --backdrop: rgba(0, 0, 0, 0.7);
+}
+
+/* ============================================================
+   ПЛОТНОСТЬ
+   ============================================================ */
+
+.density-comfortable {
+  --pad-card:    var(--sp-5);
+  --pad-card-lg: var(--sp-6);
+  --pad-section: var(--sp-10);
+  --gap-grid:    var(--sp-4);
+}
+
+.density-compact {
+  --pad-card:    var(--sp-4);
+  --pad-card-lg: var(--sp-5);
+  --pad-section: var(--sp-6);
+  --gap-grid:    var(--sp-3);
+}

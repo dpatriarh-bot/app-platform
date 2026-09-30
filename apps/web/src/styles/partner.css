@@ -1,0 +1,472 @@
+/* ============================================================
+   partner.css — стили кабинета партнёра
+   ============================================================ */
+
+/* ============================================================
+   1. SHELL
+   ============================================================ */
+
+.partner-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  background: var(--c-bg);
+
+  --pad-card: var(--sp-4);
+  --pad-card-lg: var(--sp-5);
+  --pad-section: var(--sp-6);
+  --gap-grid: var(--sp-4);
+}
+
+.partner-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  grid-column: 1 / -1;
+  height: var(--h-header-sm);
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.partner-header-inner {
+  height: 100%;
+  padding: 0 var(--sp-5);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.partner-sidebar {
+  display: none;
+  background: var(--c-surface);
+  border-right: 1px solid var(--c-border);
+  padding: var(--sp-4) 0;
+  overflow-y: auto;
+  position: sticky;
+  top: var(--h-header-sm);
+  height: calc(100vh - var(--h-header-sm));
+}
+
+.partner-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 0 var(--sp-5) var(--sp-4);
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: var(--sp-3);
+  font-size: var(--fz-base);
+  font-weight: var(--fw-black);
+  color: var(--c-text);
+  letter-spacing: var(--ls-tight);
+}
+
+.partner-sidebar-brand img {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+}
+
+.partner-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 0 var(--sp-3);
+}
+
+.partner-sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 11px var(--sp-4);
+  border-radius: var(--r-md);
+  color: var(--c-text-muted);
+  font-size: var(--fz-sm);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.partner-sidebar-nav a:hover {
+  background: var(--c-surface-2);
+  color: var(--c-text);
+}
+
+.partner-sidebar-nav a.is-active {
+  background: var(--c-primary-50);
+  color: var(--c-primary-700);
+  font-weight: var(--fw-semi);
+}
+
+.partner-sidebar-nav a svg { flex: 0 0 auto; }
+
+.partner-main {
+  padding: var(--sp-4);
+  padding-bottom: calc(var(--sp-8) + env(safe-area-inset-bottom, 0px));
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.partner-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  height: calc(var(--bottomnav-h) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--c-surface);
+  border-top: 1px solid var(--c-border);
+  display: flex;
+  align-items: stretch;
+  box-shadow: 0 -4px 16px rgba(31, 42, 23, 0.06);
+}
+
+.partner-bottom-nav a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--c-text-dim);
+  font-size: 11px;
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  padding: 6px 4px;
+  transition: color var(--t-fast);
+  position: relative;
+  min-width: 0;
+}
+
+.partner-bottom-nav a.is-active { color: var(--c-primary-700); }
+
+.partner-bottom-nav a.is-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 3px;
+  background: var(--c-primary);
+  border-radius: 0 0 3px 3px;
+}
+
+.partner-bottom-nav a svg { flex: 0 0 auto; }
+
+.partner-bottom-nav a span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.partner-bottom-spacer {
+  display: block;
+  width: 100%;
+  height: calc(var(--bottomnav-h) + env(safe-area-inset-bottom, 0px) + var(--sp-6));
+}
+
+@media (min-width: 900px) {
+  .partner-shell { grid-template-columns: var(--w-sidebar) 1fr; }
+  .partner-sidebar { display: block; }
+  .partner-main {
+    padding: var(--sp-8);
+    padding-bottom: var(--sp-10);
+    max-width: var(--w-container-wide);
+    margin: 0 auto;
+  }
+  .partner-bottom-nav { display: none; }
+  .partner-bottom-spacer { display: none; }
+}
+
+/* ============================================================
+   2. HERO
+   ============================================================ */
+
+.partner-hero {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+}
+
+.partner-hero-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--r-md);
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.partner-hero-logo.is-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-primary-50);
+  color: var(--c-primary-700);
+}
+
+.partner-hero-info { min-width: 0; flex: 1; }
+
+.partner-hero-name {
+  font-size: var(--fz-xl);
+  font-weight: var(--fw-black);
+  color: var(--c-text);
+  letter-spacing: var(--ls-tight);
+  line-height: 1.2;
+}
+
+.partner-hero-desc {
+  font-size: var(--fz-sm);
+  color: var(--c-text-muted);
+  margin-top: var(--sp-1);
+  line-height: 1.5;
+}
+
+.partner-hero-meta {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: var(--sp-3);
+}
+
+@media (max-width: 639px) {
+  .partner-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .partner-hero-meta { justify-content: center; }
+}
+
+/* ============================================================
+   3. RECENT REDEMPTIONS
+   ============================================================ */
+
+.partner-recents {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.partner-recent {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: center;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+}
+
+.partner-recent-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-sm);
+  background: var(--c-primary-50);
+  color: var(--c-primary-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.partner-recent-body { flex: 1; min-width: 0; }
+
+.partner-recent-title {
+  font-size: var(--fz-sm);
+  font-weight: var(--fw-semi);
+  color: var(--c-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.partner-recent-meta {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: var(--sp-1);
+}
+
+/* ============================================================
+   4. OFFERS GRID
+   ============================================================ */
+
+.partner-offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--sp-4);
+}
+
+.partner-offer-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: transform var(--t-base), box-shadow var(--t-base);
+}
+
+.partner-offer-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sh-md);
+}
+
+.partner-offer-image {
+  width: 100%;
+  height: 140px;
+  background: var(--c-primary-50);
+  overflow: hidden;
+}
+
+.partner-offer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.partner-offer-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-primary-700);
+}
+
+.partner-offer-body {
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  flex: 1;
+}
+
+.partner-offer-title {
+  font-size: var(--fz-base);
+  font-weight: var(--fw-bold);
+  color: var(--c-text);
+  line-height: 1.3;
+  margin-top: var(--sp-1);
+}
+
+.partner-offer-desc {
+  font-size: var(--fz-sm);
+  color: var(--c-text-muted);
+  line-height: 1.5;
+}
+
+.partner-offer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-1);
+}
+
+.partner-offer-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: var(--c-surface-3);
+  border-radius: var(--r-pill);
+  font-size: var(--fz-xs);
+  font-weight: var(--fw-semi);
+  color: var(--c-text-muted);
+}
+
+.partner-offer-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: var(--sp-2);
+  border-top: 1px solid var(--c-border);
+}
+
+/* ============================================================
+   5. REDEMPTIONS LIST
+   ============================================================ */
+
+.partner-redemptions-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.partner-redemption-card {
+  padding: var(--sp-4);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.partner-redemption-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.partner-redemption-offer {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: center;
+  min-width: 0;
+}
+
+.partner-redemption-img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-md);
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+.partner-redemption-img.is-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-primary-50);
+  color: var(--c-primary-700);
+}
+
+.partner-redemption-title {
+  font-size: var(--fz-sm);
+  font-weight: var(--fw-semi);
+  color: var(--c-text);
+}
+
+.partner-redemption-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1px dashed var(--c-border);
+}
+
+.partner-redemption-meta-item {
+  min-width: 0;
+}
+
+@media (max-width: 639px) {
+  .partner-offers-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+  .partner-offer-image { height: 120px; }
+  .partner-redemption-card { padding: var(--sp-3); }
+  .partner-redemption-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+}

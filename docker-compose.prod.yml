@@ -1,0 +1,73 @@
+# ============================================================
+# docker-compose.prod.yml — production-override
+# Запуск: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+# ============================================================
+
+services:
+
+  postgres:
+    ports: []
+    command: >
+      postgres
+      -c max_connections=200
+      -c shared_buffers=512MB
+      -c effective_cache_size=1536MB
+      -c maintenance_work_mem=128MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=16MB
+      -c default_statistics_target=100
+      -c random_page_cost=1.1
+      -c effective_io_concurrency=200
+      -c work_mem=4MB
+      -c min_wal_size=1GB
+      -c max_wal_size=4GB
+      -c log_min_duration_statement=1000
+
+  redis:
+    ports: []
+
+  minio:
+    ports:
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
+
+  api:
+    build:
+      target: production
+    volumes: []
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      NODE_ENV: production
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  worker:
+    build:
+      target: production
+    volumes: []
+    environment:
+      NODE_ENV: production
+    restart: always
+    command: node dist/jobs/worker.js
+
+  web:
+    build:
+      target: production
+    volumes: []
+    ports:
+      - "127.0.0.1:5173:80"
+    environment:
+      NODE_ENV: production
+    restart: always
+
+  nginx:
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always

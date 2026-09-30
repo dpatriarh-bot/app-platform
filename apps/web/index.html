@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#3A6DF0" />
+  <meta name="color-scheme" content="light" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <title>Улыбка ребёнка</title>
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-600.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-800.woff2" crossorigin />
+  <link rel="stylesheet" href="/fonts/fonts.css" />
+
+  <style>
+    #app-loader {
+      position: fixed; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: #F5F7FB; z-index: 9999;
+      transition: opacity .25s ease;
+    }
+    #app-loader.is-hidden { opacity: 0; pointer-events: none; }
+    .loader-spinner {
+      width: 36px; height: 36px;
+      border: 3px solid #DCE3EF; border-top-color: #3A6DF0;
+      border-radius: 50%; animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="app-loader"><div class="loader-spinner"></div></div>
+  <div id="app"></div>
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-stack"></div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
